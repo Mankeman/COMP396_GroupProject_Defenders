@@ -6,8 +6,6 @@ public class BuildManager : MonoBehaviour
 {
 
     public static BuildManager instance;
-    public GameObject panelTurretPrefab;
-    public GameObject missileLauncherPrefab;
     public GameObject buildEffect;
     private TurretBlueprint turretToBuild;
 
@@ -25,6 +23,10 @@ public class BuildManager : MonoBehaviour
 
     public void BuildTurretOn(Node node)
     {
+        if(PlayerStats.Money < turretToBuild.cost)
+        {
+            return;
+        }
         PlayerStats.Money -= turretToBuild.cost;
         //Build a turret
         GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);

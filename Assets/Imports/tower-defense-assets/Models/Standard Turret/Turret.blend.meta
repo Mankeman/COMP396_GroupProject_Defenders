@@ -3,7 +3,22 @@ guid: a6273e14a2fadf342ad53a277e5f0afe
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Turret_GunMetal
+    second: {fileID: 2100000, guid: cc70b6001669a1a4b861591af90d7f20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Turret_Metal
+    second: {fileID: 2100000, guid: bf7bafbc8d1bd00469945b9022b54237, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Turret_Metal2
+    second: {fileID: 2100000, guid: 72ef4773d032f814fb27ff144fd84fe7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

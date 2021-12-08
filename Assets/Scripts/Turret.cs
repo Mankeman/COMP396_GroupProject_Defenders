@@ -23,7 +23,7 @@ public class Turret : MonoBehaviour
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
     public Transform partToRotate;
-    public float turnSpeed = 10f;
+    public float turnSpeed = 25f;
     public Transform firePoint;
     private Transform target;
     private Enemy targetEnemy;
@@ -62,6 +62,10 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (WaveSpawner.gamePaused)
+        {
+            return;
+        }
         if(target == null)
         {
             if (useLaser)

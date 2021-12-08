@@ -8,9 +8,12 @@ public class Node : MonoBehaviour
     public Color hoverColor;
     public Color noMoneyColor;
     public Vector3 positionOffset;
-    [Header("Optional")]
+    [HideInInspector]
     public GameObject turret;
-
+    [HideInInspector]
+    public TurretBlueprint turretBlueprint;
+    [HideInInspector]
+    public bool isUpgraded = false;
     private Color startColor;
     private Renderer rend;
 
@@ -32,15 +35,56 @@ public class Node : MonoBehaviour
         {
             return;
         }
+        if(turret != null)
+        {
+            buildManager.SelectNode(this);
+            return;
+        }
         if (!buildManager.CanBuild)
         {
             return;
         }
-        if(turret != null)
+        BuildTurret(buildManager.GetTurretToBuild());
+    }
+    void BuildTurret(TurretBlueprint blueprint)
+    {
+        if (PlayerStats.Money < blueprint.cost)
         {
             return;
         }
-        buildManager.BuildTurretOn(this);
+        PlayerStats.Money -= blueprint.cost;
+        //Build a turret
+        GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        turret = _turret;
+        turretBlueprint = blueprint;
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+    }
+    public void UpgradeTurret()
+    {
+        if (PlayerStats.Money < turretBlueprint.upgradeCost)
+        {
+            return;
+        }
+        PlayerStats.Money -= turretBlueprint.upgradeCost;
+        //Destroy old turret
+        Destroy(turret);
+        //Build upgraded turret
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
+        turret = _turret;
+
+        isUpgraded = true;
+    }
+    public void SellTurret()
+    {
+        PlayerStats.Money += turretBlueprint.GetSellAmount();
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+
+        Destroy(turret);
+        turretBlueprint = null;
+        isUpgraded = false;
     }
 
     private void OnMouseEnter()

@@ -17,6 +17,10 @@ public class EnemyMovement : MonoBehaviour
     }
     void Update()
     {
+        if (WaveSpawner.gamePaused)
+        {
+            return;
+        }
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * enemyScript.speed * Time.deltaTime, Space.World);
 
@@ -43,5 +47,6 @@ public class EnemyMovement : MonoBehaviour
     {
         PlayerStats.Lives--;
         Destroy(gameObject);
+        WaveSpawner.enemiesAlive--;
     }
 }

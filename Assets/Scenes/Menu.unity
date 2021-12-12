@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,85 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &100571376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100571377}
+  - component: {fileID: 100571379}
+  - component: {fileID: 100571378}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &100571377
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100571376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 956827715}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1991, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &100571378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100571376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &100571379
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100571376}
+  m_CullTransparentMesh: 1
 --- !u!1 &259296858
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +353,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: instructions
+  m_Text: Instructions
 --- !u!222 &413231672
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -639,119 +718,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructionsTextArray:
-  - "Buy Turrets that are in the overlay by clicking on them and place them onto
-    a white square.\r\nThe enemies will spawn through the green squares and will
-    follow the black path to reach the end. If they reach the end, you will take
-    1 damage. \r\nThe difficulty will modify how much health they receive per round:\r\nEasy:
-    50 Health increase\r\nMedium: 100 Health increase\r\nHard: 200 Health increase"
-  - 'Example-
-
-    Medium mode:
-
-    Wave 1 Blue enemy health starts at 100
-
-    Wave
-    2 blue enemy health starts at 200
-
-    Wave 3 yellow enemy health starts at 350
-
-    Wave
-    4 yellow enemy health starts at 450
-
-    Wave 5 orange enemy health starts at
-    1000'
-  - 'If you place a turret, you can then click on it to either upgrade or sell it.
-
-    Upgraded
-    turrets have a (cooler) design and (of course) more damage.
-
-    There are 4
-    types of turrets:
-
-    2 bullet shooters (They share the same damage, stats differ)
-
-    1
-    missile launcher
-
-    1 laser beam that slows enemies'
-  - 'Standard Turret ($100):
-
-    Damage: 50
-
-    Range: 20
-
-    Fire rate: 1.5
-
-
-
-    Turret
-    With Panel ($150):
-
-    Damage: 50
-
-    Range: 45
-
-    Fire rate: 1
-
-
-
-    Missile
-    Launcher ($300):
-
-    Damage: 50
-
-    Range: 20
-
-    Fire rate: 0.25
-
-    Explosion
-    Radius: 7.5
-
-
-
-    Laser Beam ($350):
-
-    Damage: 30 DoT
-
-    DoT Slows by:
-    30%
-
-    Range: 25'
-  - "Upgraded Standard Turret ($125): \r\nDamage: 125\r\nRange: 45\r\nFire rate:
-    3\r\n\r\nUpgraded Turret With Panel ($150):\r\nDamage: 125\r\nRange: 90\r\nFire
-    rate: 2\r\n\r\nUpgraded Missile Launcher ($250):\r\nDamage: 100\r\nRange: 40\r\nFire
-    rate: 0.5\r\nExplosion Radius: 10\r\n\r\nUpgraded Laser Beam ($300):\r\nDamage:
-    50 DoT\r\nSlows by: 50%\r\nRange: 30"
-  - "Enemies: \r\nBasic (Blue):\r\nHealth: 100 Starting Health\r\nSpeed: 10\r\nValue:
-    20 Money\r\n\r\nSpeedster (Yellow):\r\nHealth: 150 Starting Health\r\nSpeed:
-    20\r\nValue: 25 Money\r\n\r\nTank (Orange):\r\nHealth: 500 Starting Health\r\nSpeed:
-    5\r\nValue: 50 Money\r\n\r\nBoss (Pink):\r\nHealth: 2000 Starting Health\r\nSpeed:
-    15\r\nValue: 100 Money\r\n\r\nSecret Boss (Red):\r\n???"
-  - 'Reminder that if you decide to go to the main menu, you will have to start from
-    the beginning all over again.
-
-    WASD can also control the camera movement,
-    along with moving the mouse to the far parts of your monitor.
-
-    Press the
-    spacebar or the button on the side to pause the time in game in order to have
-    more time to plan things out.
-
-    Press p or the escape button to enter the
-    pause menu.'
-  - 'Press f to re-centre your camera.
-
-    Buy Turrets quicker with your hotkey
-    (1, 2, 3, 4 in order)
-
-    Click on the placed turret, then press u to upgrade
-    or i to sell.
-
-    Press q to play (in case it crashes, it also resets to 1x
-    speed)
-
-    Press e to fast forward time (2x, 3x, 4x speed)'
-  instructionsText: {fileID: 0}
+  - Fill
+  instructionsText: {fileID: 100571378}
 --- !u!114 &956827712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,6 +794,7 @@ RectTransform:
   m_Children:
   - {fileID: 2059551556}
   - {fileID: 1511550739}
+  - {fileID: 100571377}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

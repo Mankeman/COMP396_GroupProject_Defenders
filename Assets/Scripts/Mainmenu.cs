@@ -14,6 +14,12 @@ public class Mainmenu : MonoBehaviour
         Time.timeScale = 1f;
         instructionsText.text = instructionsTextArray[0].ToString();
     }
+    public void LOAD_SCENE(string SceneName)
+    {
+
+        SceneManager.LoadScene(SceneName);
+
+    }
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

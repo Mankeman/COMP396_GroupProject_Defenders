@@ -9,9 +9,18 @@ public class CameraController : MonoBehaviour
     public float scrollSpeed = 5f;
     public float minY = 10f;
     public float maxY = 80f;
+    public float minX = -100f;
+    public float maxX = 175f;
+    public float minZ = -150f;
+    public float maxZ = 0f;
+    private Vector3 startPosition;
 
 
     // Update is called once per frame
+    private void Start()
+    {
+        startPosition = this.transform.position;
+    }
     void Update()
     {
         if (GameManager.GameIsOver)
@@ -35,12 +44,16 @@ public class CameraController : MonoBehaviour
         {
             transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
         }
-
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            transform.position = startPosition;
+        }
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         Vector3 pos = transform.position;
         pos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
-
+        pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
         transform.position = pos;
     }
 }

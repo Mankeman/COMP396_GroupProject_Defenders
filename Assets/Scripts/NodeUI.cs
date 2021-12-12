@@ -11,6 +11,20 @@ public class NodeUI : MonoBehaviour
     public Text sellCost;
     private Node target;
 
+    private void Update()
+    {
+        if (ui.activeInHierarchy)
+        {
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                Upgrade();
+            }
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                Sell();
+            }
+        }
+    }
     public void SetTarget(Node _target)
     {
         target = _target;

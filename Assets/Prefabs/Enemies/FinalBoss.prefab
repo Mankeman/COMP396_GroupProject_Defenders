@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: -4408248434798051692}
   - component: {fileID: 5766933552734553634}
   m_Layer: 0
-  m_Name: TankEnemy
+  m_Name: FinalBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +315,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b0c63a26a6b359b47a2af8071bc8a4d4, type: 2}
+  - {fileID: 2100000, guid: ece5414c8c9db8c4682bdca5a57d7866, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -363,11 +363,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  health: 500
-  startHealth: 500
-  startSpeed: 5
-  value: 50
-  deathEffect: {fileID: 2414918969656531541, guid: d922f73404df6a848a5a4195f3e90331, type: 3}
+  health: 2000
+  startHealth: 10000
+  startSpeed: 25
+  value: 1
+  deathEffect: {fileID: 2414918969656531541, guid: cf494a24b3fbe204db709e333c1b6267, type: 3}
   healthBar: {fileID: 873195248}
 --- !u!114 &5766933552734553634
 MonoBehaviour:

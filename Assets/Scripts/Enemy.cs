@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     [HideInInspector]
     public float health;
+    private float healthForHealthBar;
     public float startHealth = 100f;
     public float startSpeed = 10f;
     public int value = 50;
@@ -14,6 +15,30 @@ public class Enemy : MonoBehaviour
     [Header("Unity Stuff")]
     public Image healthBar;
 
+    private void Awake()
+    {
+        switch (startSpeed)
+        {
+            case 5:
+                startHealth = 500;
+                break;
+            case 10:
+                startHealth = 100;
+                break;
+            case 15:
+                startHealth = 2000;
+                break;
+            case 20:
+                startHealth = 150;
+                break;
+            case 25:
+                startHealth = 10000;
+                break;
+            default:
+                startHealth = 100;
+                break;
+        }
+    }
     private void Start()
     {
         speed = startSpeed;
@@ -26,7 +51,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        healthBar.fillAmount = health / startHealth; ;
+        healthBar.fillAmount = health / startHealth;
         if(health <= 0)
         {
             Die();

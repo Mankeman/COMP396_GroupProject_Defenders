@@ -13,6 +13,25 @@ public class Shop : MonoBehaviour
     {
         buildManager = BuildManager.instance;
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SelectStandardTurret();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SelectPanelTurret();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SelectMissileLauncher();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SelectLaserBeamer();
+        }
+    }
     public void SelectPanelTurret()
     {
         buildManager.SelectTurretToBuild(panelTurret);

@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821d54dbf805df749be9608e9a713163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 20
   bulletPrefab: {fileID: 2831770317428088042, guid: cbe7cb93479d6d3438293e424cedd199, type: 3}
   fireRate: 1
   useLaser: 0

@@ -9,7 +9,8 @@ public class BuildManager : MonoBehaviour
     public GameObject buildEffect;
     public GameObject sellEffect;
     public NodeUI nodeUI;
-    private TurretBlueprint turretToBuild;
+    [HideInInspector]
+    public static TurretBlueprint turretToBuild;
     private Node selectedNode;
 
     private void Awake()

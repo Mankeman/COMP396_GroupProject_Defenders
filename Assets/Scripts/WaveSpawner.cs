@@ -26,6 +26,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         difficulty = PlayerPrefs.GetString("Difficulty");
         switch (difficulty)
         {
@@ -43,10 +44,15 @@ public class WaveSpawner : MonoBehaviour
                 break;
         }
     }
+    public void PlayGame()
+    {
+        Time.timeScale = 1f;
+        Update();
+    }
     void Update()
     {
         waveCountUI.text = "Round " + PlayerStats.Rounds;
-        if (gameWon && PlayerStats.Rounds >= waves.Length && enemiesAlive == 0 && enemyParent.transform.childCount == 0)
+        if (gameWon && enemyParent.transform.childCount <= 0)
         {
             winUI.SetActive(true);
             pauseButton.SetActive(false);
@@ -54,6 +60,7 @@ public class WaveSpawner : MonoBehaviour
         }
         if (enemiesAlive > 0 || enemyParent.transform.childCount > 0)
         {
+            countdown = timeBetweenWaves;
             return;
         }
         if(PlayerStats.Rounds >=waves.Length)
@@ -91,8 +98,8 @@ public class WaveSpawner : MonoBehaviour
     }
     void SpawnEnemy(GameObject enemyPrefab)
     {
-        enemyPrefab.GetComponent<Enemy>().health = enemyPrefab.GetComponent<Enemy>().health + (healthValue * waveIndex);
-        var newEnemy =  Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject newEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        newEnemy.GetComponent<Enemy>().startHealth = newEnemy.GetComponent<Enemy>().startHealth + (healthValue * waveIndex);
         enemiesAlive++;
         newEnemy.transform.parent = enemyParent.transform;
     }

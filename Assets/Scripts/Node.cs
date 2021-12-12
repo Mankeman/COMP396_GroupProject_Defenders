@@ -8,6 +8,7 @@ public class Node : MonoBehaviour
     public Color hoverColor;
     public Color noMoneyColor;
     public Vector3 positionOffset;
+    public GameObject rangeOfTurret;
     [HideInInspector]
     public GameObject turret;
     [HideInInspector]
@@ -24,6 +25,7 @@ public class Node : MonoBehaviour
         buildManager = BuildManager.instance;
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
+        rangeOfTurret = transform.GetChild(0).gameObject;
     }
     public Vector3 GetBuildPosition()
     {
@@ -45,6 +47,7 @@ public class Node : MonoBehaviour
             return;
         }
         BuildTurret(buildManager.GetTurretToBuild());
+        RangeOfTurretOff();
     }
     void BuildTurret(TurretBlueprint blueprint)
     {
@@ -105,10 +108,23 @@ public class Node : MonoBehaviour
         {
             rend.material.color = noMoneyColor;
         }
+        RangeOfTurretOn();
     }
 
     private void OnMouseExit()
     {
         rend.material.color = startColor;
+        RangeOfTurretOff();
+    }
+    private void RangeOfTurretOff()
+    {
+        rangeOfTurret.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        rangeOfTurret.SetActive(false);
+    }
+    private void RangeOfTurretOn()
+    {
+        float range = BuildManager.turretToBuild.prefab.GetComponent<Turret>().range;
+        rangeOfTurret.transform.localScale = new Vector3(range / 2, 0.1f, range / 2);
+        rangeOfTurret.SetActive(true);
     }
 }

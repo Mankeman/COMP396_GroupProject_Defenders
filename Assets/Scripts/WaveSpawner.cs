@@ -52,7 +52,7 @@ public class WaveSpawner : MonoBehaviour
     void Update()
     {
         waveCountUI.text = "Round " + PlayerStats.Rounds;
-        if (gameWon && enemyParent.transform.childCount <= 0)
+        if (GameManager.GameIsOver == false && gameWon && enemyParent.transform.childCount <= 0)
         {
             winUI.SetActive(true);
             pauseButton.SetActive(false);
